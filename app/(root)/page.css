@@ -1,0 +1,12 @@
+.gradient.green:before {
+    background: var(--green-gradient);
+    box-shadow: 0px 0px 150px 200px var(--green-gradient);
+    right: 0;
+}
+
+video {
+    object-fit: contain;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+  
+}
