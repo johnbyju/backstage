@@ -10,7 +10,7 @@ export const connectToDatabase = async () => {
   if(!MONGODB_URL) throw new Error('MONGODB_URI is missing');
 
   cached.promise = cached.promise || mongoose.connect(MONGODB_URL, {
-    dbName: 'backstage',
+    dbName:'backstage',
     bufferCommands: false,
   })
 
