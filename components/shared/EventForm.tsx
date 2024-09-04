@@ -98,10 +98,11 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                         render={({ field }) => (
                             <FormItem className='w-full'>
                                 <FormControl>
-                                    <div>
-                                        <Image alt='' src='/assets/icons/location-gray.svg'/>
+                                    <div className='flex-center h-[54px] w-full overflow-hidden rounded-full bg-gray-50 px-4 py-2'>
+                                        <Image alt='' width={24} height={24} src='/assets/icons/location-grey.svg' className=''/>
+                                        <Input placeholder="Event Title" {...field} className='input-field' />
                                     </div>
-                                    <Input placeholder="Event Title" {...field} className='input-field' />
+                                   
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
