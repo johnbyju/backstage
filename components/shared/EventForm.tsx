@@ -10,7 +10,9 @@ import { eventformSchema } from '@/lib/validator'
 import { eventDefaultValues } from '@/constants'
 import DropDown from './DropDown'
 import { Textarea } from '../ui/textarea'
-import FileUploader from './FileUploader'
+import { FileUploader } from './FileUploader'
+import Image from 'next/image'
+
 
 
 
@@ -83,6 +85,23 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                                     <FileUploader onFieldChange={field.onChange}
                                     imageUrl={field.value}
                                     setFiles={setfiles}/>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <div className='flex flex-col gap-5 md:flex-row'>
+                <FormField
+                        control={form.control}
+                        name="location"
+                        render={({ field }) => (
+                            <FormItem className='w-full'>
+                                <FormControl>
+                                    <div>
+                                        <Image alt='' src='/assets/icons/location-gray.svg'/>
+                                    </div>
+                                    <Input placeholder="Event Title" {...field} className='input-field' />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
