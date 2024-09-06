@@ -17,10 +17,10 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { Checkbox } from '../ui/checkbox'
 import {useUploadThing} from '@/lib/uploadthing'
 import { handleError } from '@/lib/utils'
-// import CreateEvent from '@/app/(root)/events/create/page'
 import path from 'path'
 import router from 'next/router'
 import {useRouter} from 'next/router'
+import { createEvent } from '@/lib/actions/event.actions'
 
 
 
