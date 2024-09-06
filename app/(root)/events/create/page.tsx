@@ -5,7 +5,6 @@ import React from 'react'
 const CreateEvent = (p0?: { event: { imageUrl: string; title: string; description: string; location: string; startDateTime: Date; endDateTime: Date; categoryId: string; price: string; isFree: boolean; url: string; }; userId: string; path: string; }) => {
     const {sessionClaims} = auth();
     const userId = sessionClaims?.userId as string
-    
     return (
         <>
             <section className='bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10'>

@@ -6,7 +6,15 @@ import { handleError } from "../utils"
 import User from "../database/models/user.model"
 import Event from "../database/models/event.model"
 import CreateEvent from "@/app/(root)/events/create/page"
+import Category from "../database/models/category.model"
+import { model } from "mongoose"
 
+const populateEvent = async (query:any)=>{
+
+    return query 
+    .populate({path : 'organizer',model:User,select:'_id firstName lastName'})
+    .populate({path : 'category',model:Category,select:'_id name'})
+}
 
 export const createEvent = async ({event,userId,path}:CreateEventParams)=>{
 
@@ -17,8 +25,8 @@ export const createEvent = async ({event,userId,path}:CreateEventParams)=>{
 
         if(!organizer){
             throw new Error("Oraganizer not found")
-        }
-        
+        } 
+          
         const newEvent =await Event.create({
             ...event,
             category:event.categoryId,
@@ -35,3 +43,16 @@ export const createEvent = async ({event,userId,path}:CreateEventParams)=>{
 }
 
 
+export const getEventById =async(eventId:string)=>{
+
+    try {
+        await connectToDatabase();
+        const event = await populateEvent(Event.findById(eventId));
+        if(!event){
+            throw new Error("user not found")
+        }
+        return JSON.parse(JSON.stringify(event));   
+    } catch (error) {
+        handleError(error)
+    }
+}

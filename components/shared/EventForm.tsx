@@ -18,8 +18,7 @@ import { Checkbox } from '../ui/checkbox'
 import {useUploadThing} from '@/lib/uploadthing'
 import { handleError } from '@/lib/utils'
 import path from 'path'
-import router from 'next/router'
-import {useRouter} from 'next/router'
+import {useRouter} from 'next/navigation'
 import { createEvent } from '@/lib/actions/event.actions'
 
 
@@ -30,6 +29,8 @@ type EventFormProps = {
     type: 'Create' | 'Update'
 }
 const EventForm = ({ userId, type }: EventFormProps) => {
+
+    const router = useRouter();
     const [files, setfiles] = useState<File[]>([]);
     const intialValues = eventDefaultValues
     const {startUpload} = useUploadThing('imageUploader')
