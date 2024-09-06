@@ -1,5 +1,5 @@
-import * as z from "zod"
-import Category from "./database/models/category.model"
+// import * as z from "zod"
+import z from 'zod'
 
 
 export const eventformSchema = z.object({
