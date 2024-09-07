@@ -2,7 +2,7 @@ import EventForm from '@/components/shared/EventForm'
 import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 
-const CreateEvent = (p0?: { event: { imageUrl: string; title: string; description: string; location: string; startDateTime: Date; endDateTime: Date; categoryId: string; price: string; isFree: boolean; url: string; }; userId: string; path: string; }) => {
+const CreateEvent = () => {
     const {sessionClaims} = auth();
     const userId = sessionClaims?.userId as string
     return (
