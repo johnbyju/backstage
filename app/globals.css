@@ -274,3 +274,13 @@ body {
 .react-datepicker__time-list-item--selected {
   background-color: #624cf5 !important;
 }
+
+
+.custom-gradient {
+  background: #0F91CD;
+  background: linear-gradient(to right, #0F91CD 16%, #7610AC 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  size: 4rem;
+}
+

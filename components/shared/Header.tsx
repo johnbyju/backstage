@@ -12,10 +12,13 @@ const Header = () => {
   return (
     <>
       <header className='w-full border-b'>
-        <div className='wrapper flex items-center  justify-between'>
-          <Link href='/' className='w-36'>
-            <Image src="/assets/images/favicon.ico" alt='Backstage Logo' width={40} height={32} />
-          </Link>
+        <div className='wrapper flex items-center justify-between'>
+          <div className='flex items-center space-x-2'>
+            <Link href='/' className='w-12'>
+              <Image src="/assets/images/favicon.ico" alt='Backstage Logo' width={40} height={32} />
+            </Link>
+            <h3 className='custom-gradient'>BACKSTAGE</h3>
+          </div>
           <SignedIn>
             <nav className='md:flex-between hidden w-full max-w-xs'>
               <NavItems />

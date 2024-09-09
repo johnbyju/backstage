@@ -15,7 +15,7 @@ export default async function Home() {
     limit : 6
   })
 
-  console.log(events);
+  // console.log(events);
   
   return (
     <>
@@ -48,7 +48,7 @@ export default async function Home() {
         </div>
         <Collection
           data={events?.data}
-          emptyTitle="No Events Found"
+          emptyTitle="No Events Found..!"
           emptyStateSubtext='Come Back Later..✌'
           collectionType='All_Events'
           limit={6}
