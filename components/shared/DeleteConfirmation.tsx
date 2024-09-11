@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import React, { useTransition } from 'react'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '../ui/alert-dialog';
 import Image from 'next/image';
+import { deleteEvent } from '@/lib/actions/event.actions';
 
 
 
@@ -23,8 +24,8 @@ const DeleteConfirmation = ({ eventId }: { eventId: string }) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={ ()=>startTransition( async ()=>{await deleteEvent})}>
-
+          <AlertDialogAction onClick={ ()=>startTransition( async ()=>{await deleteEvent({eventId,path:pathname})})}>
+                  {isPending? 'Deleting..':'Delete'}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
