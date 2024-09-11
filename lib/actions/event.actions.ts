@@ -93,4 +93,6 @@ export const deleteEvent =async({eventId,path}:DeleteEventParams)=>{
     }
 }
 
+
+
   
