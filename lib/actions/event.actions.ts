@@ -94,7 +94,7 @@ export const deleteEvent = async ({ eventId, path }: DeleteEventParams) => {
 }
 
 
-export const updateEvent = async ({ event, userId, path }: UpdateEventParams) => {
+export const UpdateEvent = async ({ event, userId, path }: UpdateEventParams) => {
     try {
         await connectToDatabase();
 
