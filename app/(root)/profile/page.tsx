@@ -14,6 +14,8 @@ const profile =async()=>{
     const OrganizedEvents = await getEventsByUser({
         userId, page:1
     })
+
+   
   return (
     <>
 
