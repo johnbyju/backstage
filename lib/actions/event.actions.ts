@@ -133,6 +133,9 @@ export const getEventsByUser =async({userId,limit=6,page}:GetEventsByUserParams)
         const events = await populateEvent(eventsQuery);
         const eventsCount = await Event.countDocuments(conditions)
 
+        // console.log(events);
+        
+
         return {data : JSON.parse(JSON.stringify(events)),totalPages :Math.ceil(eventsCount/limit)}
     }
     catch(error){
