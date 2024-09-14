@@ -7,10 +7,9 @@ type updateEventProps = {
     params: {
         id: string
     }
-    userId : string
 }
 
-const UpdateEvent = async ({ params:  {id} }: updateEventProps) => {
+const UpdateEvent = async ({ params:{id}}: updateEventProps) => {
 
     const { sessionClaims } = auth();
     const userId = sessionClaims?.userId as string;
