@@ -9,7 +9,7 @@ import { auth } from '@clerk/nextjs/server'
 import Link from 'next/link'
 import React from 'react'
 
-const profile = async ({searchParams}:SearchParamProps) => {
+const profile = async ({ searchParams }: SearchParamProps) => {
 
     const { sessionClaims } = auth();
     const userId = sessionClaims?.userId as string;
@@ -18,14 +18,13 @@ const profile = async ({searchParams}:SearchParamProps) => {
         userId, page: 1
     })
 
-    const ordersPage =Number(searchParams?.ordersPage) || 1;
-    const eventsPage =Number(searchParams?.eventsPage) || 1;
-    const orders =await getOrdersByUser({userId,page:ordersPage})
+    const ordersPage = Number(searchParams?.ordersPage) || 1;
+    const eventsPage = Number(searchParams?.eventsPage) || 1;
+    const orders = await getOrdersByUser({ userId, page: ordersPage })
 
-    const orderedEvents = orders?.data.map((order :IOrder)=>order.event) || [];
-        
-  
-  
+    const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
+
+    const organizedEvents = await getEventsByUser( {userId,page:eventsPage})
 
 
     return (
@@ -42,14 +41,14 @@ const profile = async ({searchParams}:SearchParamProps) => {
             </section>
             <section className='wrapper my-8'>
                 <Collection
-          data={orderedEvents}
-          emptyTitle="No Event Ticket purchased yet"
-          emptyStateSubtext='so many events to explore'
-          collectionType='My_Tickets'
-          limit={3}
-          page={1}
-          totalPages={2}
-        urlParamName="ordersPage"/>
+                    data={orderedEvents}
+                    emptyTitle="No Event Ticket purchased yet"
+                    emptyStateSubtext='so many events to explore'
+                    collectionType='My_Tickets'
+                    limit={3}
+                    page={ordersPage}
+                    totalPages={orders?.totalPages}
+                    urlParamName="ordersPage" />
             </section>
 
             <section className='bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10'>
@@ -70,8 +69,8 @@ const profile = async ({searchParams}:SearchParamProps) => {
                     emptyStateSubtext='go create some now..!'
                     collectionType='Events_Organized'
                     limit={6}
-                    page={1}
-                    totalPages={2}
+                    page={eventsPage}
+                    totalPages={organizedEvents?.totalPages}
                     urlParamName="eventsPage" />
             </section>
 
