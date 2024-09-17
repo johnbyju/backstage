@@ -1,6 +1,7 @@
 import Search from '@/components/shared/Search';
 import { getOrdersByEvent } from '@/lib/actions/order.actions';
 import { IOrderItem } from '@/lib/database/models/order.model';
+import { formatDateTime, formatPrice } from '@/lib/utils';
 import { SearchParamProps } from '@/types'
 import React from 'react'
 
@@ -42,8 +43,12 @@ const orders = await getOrdersByEvent({eventId,searchString:searchText})
             <>
             {orders && orders.map((row:IOrderItem)=>(
               
-              <tr className='p-regular-14 lg:p-regular-16 border-b' style={{boxSizing: 'border-box'}}>
-
+              <tr className='p-regular-14 lg:p-regular-16 border-b' style={{boxSizing: 'border-box'}} key={row._id}>
+                <td className='min-w-[250px] py-4 text-primary-500'>{row._id}</td>
+                <td className='min-w-[200px] flex-1 py-4 pr-4'>{row.eventTitle}</td>
+                <td className='min-w-[150px] py-4'>{row.buyer}</td>
+                <td className='min-w-[100px] py-4'>{formatDateTime(row.createdAt).dateTime}</td>
+                <td className='min-w-[100px] py-4'>{formatPrice(row.totalAmount)}</td>
               </tr>
             ))}
             </>
