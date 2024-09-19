@@ -1,3 +1,4 @@
+import CategoryFillter from "@/components/shared/CategoryFillter";
 import Collection from "@/components/shared/Collection";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,7 @@ export default async function Home({searchParams}:SearchParamProps) {
         <h2 className="h2-bold">Trust by <br /> Thousands of Events</h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
           <Search/>
-          categoryFillter
+          <CategoryFillter/>
         </div>
         <Collection
           data={events?.data}
