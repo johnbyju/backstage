@@ -1,5 +1,6 @@
 import CategoryFillter from "@/components/shared/CategoryFillter";
 import Collection from "@/components/shared/Collection";
+import CounterSection from "@/components/shared/CounterComponet";
 import Pagination from "@/components/shared/Pagination";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
@@ -62,6 +63,10 @@ export default async function Home({searchParams}:SearchParamProps) {
           page={page}
           totalPages={events?.totalPages}
         urlParamName={""}/>
+      </section>
+
+      <section>
+        <CounterSection/>
       </section>
     </>
   );

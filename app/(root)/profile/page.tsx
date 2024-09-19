@@ -68,7 +68,7 @@ const profile = async ({ searchParams }: SearchParamProps) => {
                     emptyTitle="No Event Ticket have been created yet"
                     emptyStateSubtext='go create some now..!'
                     collectionType='Events_Organized'
-                    limit={6}
+                    limit={3}
                     page={eventsPage}
                     totalPages={organizedEvents?.totalPages}
                     urlParamName="eventsPage" />
