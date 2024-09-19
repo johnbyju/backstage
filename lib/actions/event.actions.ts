@@ -145,7 +145,7 @@ export const getEventsByUser =async({userId,limit=6,page}:GetEventsByUserParams)
         // console.log(events);
         
 
-        return {data : JSON.parse(JSON.stringify(events)),totalPages :Math.ceil(eventsCount/limit)}
+        return {data : JSON.parse(JSON.stringify(events)),totalPages:Math.ceil(eventsCount/limit)}
     }
     catch(error){
         handleError(error)
