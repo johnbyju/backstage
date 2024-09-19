@@ -18,9 +18,9 @@ const CounterSection = () => {
 }
 return (
     <section style={styles.section}>
-        <div style={styles.contentwrap} className='max-w-screen-xl'>
-            <h1 className='h3-medium justify-around  mb-6'>Backstage by the Numbers</h1>
-            <ul className="flex flex-col gap-6 ">
+        <div style={styles.contentwrap} className='max-w-screen-xl mt-6'>
+            <h1 className='h3-medium'>Backstage by the Numbers</h1>
+            <ul className="flex flex-col align-center justify-center">
                 <li className="text-2xl font-bold">
                     <CountUp end={100000} duration={3} separator="," />+
                     <span className='block text-medium'>events</span>
