@@ -1,5 +1,6 @@
 import CategoryFillter from "@/components/shared/CategoryFillter";
 import Collection from "@/components/shared/Collection";
+import Pagination from "@/components/shared/Pagination";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/event.actions";
@@ -59,7 +60,7 @@ export default async function Home({searchParams}:SearchParamProps) {
           collectionType='All_Events'
           limit={6}
           page={1}
-          totalPages={2}
+          totalPages={events?.totalPages}
         urlParamName={""}/>
       </section>
     </>
