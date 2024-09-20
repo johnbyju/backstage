@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import CountUp from 'react-countup';
 
 const CounterSection = () => {
@@ -8,39 +8,53 @@ const CounterSection = () => {
             // backgroundColor: '#f2f2fd',
             padding: '20px 40px',
             borderRadius: '10px',
-        background: 'linear-gradient(204deg, #064c59 1%, #261888 40%, #0e4c4d 90%)',
-        color: '#fff'
-    },
-     section :{
-        margin :'20px',
-        
-     }
-}
-return (
-    <section style={styles.section}>
-        <div style={styles.contentwrap} className='max-w-screen-xl mt-6'>
-            <h1 className='h3-medium'>Backstage by the Numbers</h1>
-            <ul className="flex flex-col align-center justify-center">
-                <li className="text-2xl font-bold">
-                    <CountUp end={100000} duration={3} separator="," />+
-                    <span className='block text-medium'>events</span>
-                </li>
-                <li className="text-2xl font-bold">
-                    <CountUp end={50000} duration={3} separator="," />+ 
-                    <span className='block'>event planners</span>
-                </li>
-                <li className="text-2xl font-bold">
-                    <CountUp end={165} duration={3} separator="," />+ 
-                    <span className='block'>countries</span>
-                </li>
-                <li className="text-2xl font-bold">
-                    <CountUp end={1600000} duration={3} separator="," />+
-                    <span className='block'>attendees</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-);
+            background: 'linear-gradient(204deg, #064c59 1%, #261888 40%, #0e4c4d 90%)',
+            color: '#fff'
+        },
+        section: {
+            margin: '20px',
+
+        }
+    }
+
+    const [starter, setstarter] = useState(false);
+
+    useEffect(() => {
+      const position = 
+    
+      return () => {
+       
+      }
+    }, [])
+    
+
+    return (
+        <section className="section mx-5 counter-section py-10 px-6 bg-gradient-to-r from-[#064c59] via-[#261888] to-[#0e4c4d] text-white rounded-lg">
+            <h1 className="text-3xl font-semibold text-center mb-8">Backstage by the Numbers</h1>
+            <div className="flex flex-col md:flex-row justify-around items-center gap-6">
+                <ul className="flex flex-col md:flex-row gap-6">
+                    <li className="text-2xl font-bold text-center">
+                       {starter && <CountUp end={100000} duration={3} separator="," />}+
+                        <span className="block text-lg">events</span>
+                    </li>
+                    <li className="text-2xl font-bold text-center">
+                    {starter &&   <CountUp end={50000} duration={3} separator="," />}+
+                        <span className="block text-lg">event planners</span>
+                    </li>
+                    <li className="text-2xl font-bold text-center">
+                    {starter &&   <CountUp end={165} duration={3} separator="," />}+
+                        <span className="block text-lg">countries</span>
+                    </li>
+                    <li className="text-2xl font-bold text-center">
+                    {starter && <CountUp end={1600000} duration={3} separator="," />}+
+                        <span className="block text-lg">attendees</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+    );
 };
 
 export default CounterSection;
